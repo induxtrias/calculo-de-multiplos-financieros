@@ -61,40 +61,40 @@
 <h1>Cálculo de Múltiplos Financieros</h1>
 <form id="financialForm">
     <label for="price">Precio de la acción:</label>
-    <input type="number" id="price" value="100" required>
+    <input type="text" id="price" required>
 
     <label for="eps">Beneficio por acción (EPS):</label>
-    <input type="number" id="eps" value="5" required>
+    <input type="text" id="eps" required>
 
     <label for="bookValue">Valor contable por acción:</label>
-    <input type="number" id="bookValue" value="40" required>
+    <input type="text" id="bookValue" required>
 
     <label for="sales">Ventas por acción:</label>
-    <input type="number" id="sales" value="80" required>
+    <input type="text" id="sales" required>
 
     <label for="ev">Valor de la empresa (EV):</label>
-    <input type="number" id="ev" value="600" required>
+    <input type="text" id="ev" required>
 
     <label for="ebitda">EBITDA:</label>
-    <input type="number" id="ebitda" value="100" required>
+    <input type="text" id="ebitda" required>
 
     <label for="dividend">Dividendo anual por acción:</label>
-    <input type="number" id="dividend" value="4" required>
+    <input type="text" id="dividend" required>
 
     <label for="netIncome">Beneficio neto:</label>
-    <input type="number" id="netIncome" value="30" required>
+    <input type="text" id="netIncome" required>
 
     <label for="equity">Capital contable:</label>
-    <input type="number" id="equity" value="200" required>
+    <input type="text" id="equity" required>
 
     <label for="debt">Deuda total:</label>
-    <input type="number" id="debt" value="50" required>
+    <input type="text" id="debt" required>
 
     <label for="currentAssets">Activos corrientes:</label>
-    <input type="number" id="currentAssets" value="100" required>
+    <input type="text" id="currentAssets" required>
 
     <label for="currentLiabilities">Pasivos corrientes:</label>
-    <input type="number" id="currentLiabilities" value="70" required>
+    <input type="text" id="currentLiabilities" required>
 
     <button type="submit">Calcular Múltiplos</button>
 </form>
@@ -120,19 +120,21 @@
     document.getElementById('financialForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Obtener los valores de los campos
-        const price = parseFloat(document.getElementById('price').value);
-        const eps = parseFloat(document.getElementById('eps').value);
-        const bookValue = parseFloat(document.getElementById('bookValue').value);
-        const sales = parseFloat(document.getElementById('sales').value);
-        const ev = parseFloat(document.getElementById('ev').value);
-        const ebitda = parseFloat(document.getElementById('ebitda').value);
-        const dividend = parseFloat(document.getElementById('dividend').value);
-        const netIncome = parseFloat(document.getElementById('netIncome').value);
-        const equity = parseFloat(document.getElementById('equity').value);
-        const debt = parseFloat(document.getElementById('debt').value);
-        const currentAssets = parseFloat(document.getElementById('currentAssets').value);
-        const currentLiabilities = parseFloat(document.getElementById('currentLiabilities').value);
+        // Obtener los valores de los campos y convertir a número
+        const parseValue = (value) => parseFloat(value.replace(',', '.'));
+
+        const price = parseValue(document.getElementById('price').value);
+        const eps = parseValue(document.getElementById('eps').value);
+        const bookValue = parseValue(document.getElementById('bookValue').value);
+        const sales = parseValue(document.getElementById('sales').value);
+        const ev = parseValue(document.getElementById('ev').value);
+        const ebitda = parseValue(document.getElementById('ebitda').value);
+        const dividend = parseValue(document.getElementById('dividend').value);
+        const netIncome = parseValue(document.getElementById('netIncome').value);
+        const equity = parseValue(document.getElementById('equity').value);
+        const debt = parseValue(document.getElementById('debt').value);
+        const currentAssets = parseValue(document.getElementById('currentAssets').value);
+        const currentLiabilities = parseValue(document.getElementById('currentLiabilities').value);
 
         // Calcular los múltiplos financieros
         const per = price / eps;
@@ -162,18 +164,18 @@
 
     // Rellenar automáticamente con un ejemplo al cargar la página
     window.onload = function() {
-        document.getElementById('price').value = 100;
-        document.getElementById('eps').value = 5;
-        document.getElementById('bookValue').value = 40;
-        document.getElementById('sales').value = 80;
-        document.getElementById('ev').value = 600;
-        document.getElementById('ebitda').value = 100;
-        document.getElementById('dividend').value = 4;
-        document.getElementById('netIncome').value = 30;
-        document.getElementById('equity').value = 200;
-        document.getElementById('debt').value = 50;
-        document.getElementById('currentAssets').value = 100;
-        document.getElementById('currentLiabilities').value = 70;
+        document.getElementById('price').value = "100,00";
+        document.getElementById('eps').value = "5,00";
+        document.getElementById('bookValue').value = "40,00";
+        document.getElementById('sales').value = "80,00";
+        document.getElementById('ev').value = "600,00";
+        document.getElementById('ebitda').value = "100,00";
+        document.getElementById('dividend').value = "4,00";
+        document.getElementById('netIncome').value = "30,00";
+        document.getElementById('equity').value = "200,00";
+        document.getElementById('debt').value = "50,00";
+        document.getElementById('currentAssets').value = "100,00";
+        document.getElementById('currentLiabilities').value = "70,00";
     };
 </script>
 </body>
