@@ -61,40 +61,40 @@
 <h1>Cálculo de Múltiplos Financieros</h1>
 <form id="financialForm">
     <label for="price">Precio de la acción:</label>
-    <input type="number" id="price" required>
+    <input type="number" id="price" value="100" required>
 
     <label for="eps">Beneficio por acción (EPS):</label>
-    <input type="number" id="eps" required>
+    <input type="number" id="eps" value="5" required>
 
     <label for="bookValue">Valor contable por acción:</label>
-    <input type="number" id="bookValue" required>
+    <input type="number" id="bookValue" value="40" required>
 
     <label for="sales">Ventas por acción:</label>
-    <input type="number" id="sales" required>
+    <input type="number" id="sales" value="80" required>
 
     <label for="ev">Valor de la empresa (EV):</label>
-    <input type="number" id="ev" required>
+    <input type="number" id="ev" value="600" required>
 
     <label for="ebitda">EBITDA:</label>
-    <input type="number" id="ebitda" required>
+    <input type="number" id="ebitda" value="100" required>
 
     <label for="dividend">Dividendo anual por acción:</label>
-    <input type="number" id="dividend" required>
+    <input type="number" id="dividend" value="4" required>
 
     <label for="netIncome">Beneficio neto:</label>
-    <input type="number" id="netIncome" required>
+    <input type="number" id="netIncome" value="30" required>
 
     <label for="equity">Capital contable:</label>
-    <input type="number" id="equity" required>
+    <input type="number" id="equity" value="200" required>
 
     <label for="debt">Deuda total:</label>
-    <input type="number" id="debt" required>
+    <input type="number" id="debt" value="50" required>
 
     <label for="currentAssets">Activos corrientes:</label>
-    <input type="number" id="currentAssets" required>
+    <input type="number" id="currentAssets" value="100" required>
 
     <label for="currentLiabilities">Pasivos corrientes:</label>
-    <input type="number" id="currentLiabilities" required>
+    <input type="number" id="currentLiabilities" value="70" required>
 
     <button type="submit">Calcular Múltiplos</button>
 </form>
@@ -155,10 +155,26 @@
             <p><strong>Dividend Yield:</strong> ${dividendYield.toFixed(2)}% <br> <em>Fórmula: (Dividendo / Precio) * 100</em> (Intervalo positivo: 2% - 5%)</p>
             <p><strong>ROE (Return on Equity):</strong> ${roe.toFixed(2)}% <br> <em>Fórmula: Beneficio Neto / Capital Contable</em> (Intervalo positivo: 15% - 20% o más)</p>
             <p><strong>ROA (Return on Assets):</strong> ${roa.toFixed(2)}% <br> <em>Fórmula: Beneficio Neto / (Capital Contable + Deuda)</em> (Intervalo positivo: 5% - 10%)</p>
-            <p><strong>Debt to Equity Ratio:</strong> ${debtToEquity.toFixed(2)} <br> <em>Fórmula: Deuda / Capital Contable</em> (Intervalo positivo: < 1)</p>
+            <p><strong>Debt to Equity Ratio:</strong> ${debtToEquity.toFixed(2)} <br> <em>Fórmula: Deuda Total / Capital Contable</em> (Intervalo positivo: < 1)</p>
             <p><strong>Current Ratio:</strong> ${currentRatio.toFixed(2)} <br> <em>Fórmula: Activos Corrientes / Pasivos Corrientes</em> (Intervalo positivo: 1.5 - 2)</p>
         `;
     });
+
+    // Rellenar automáticamente con un ejemplo al cargar la página
+    window.onload = function() {
+        document.getElementById('price').value = 100;
+        document.getElementById('eps').value = 5;
+        document.getElementById('bookValue').value = 40;
+        document.getElementById('sales').value = 80;
+        document.getElementById('ev').value = 600;
+        document.getElementById('ebitda').value = 100;
+        document.getElementById('dividend').value = 4;
+        document.getElementById('netIncome').value = 30;
+        document.getElementById('equity').value = 200;
+        document.getElementById('debt').value = 50;
+        document.getElementById('currentAssets').value = 100;
+        document.getElementById('currentLiabilities').value = 70;
+    };
 </script>
 </body>
 </html>
